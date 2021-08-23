@@ -498,18 +498,40 @@
         const celulas=document.querySelectorAll("td");
         for(let i=0; i<celulas.length; i++)
     {
-        elemento.addEventListener("click", classeAtual, false);
+        elemento.addEventListener("click", ModificaClasseAtual, false);
         const elemento=celulas[i];
         if(elemento.className== "")
         {
-          elemento.classList.add("parede");
+            elemento.classList.add("parede");
         }
     }
 
-        function classeAtual(event)
+        function ModificaClasseAtual(event)
     {
         let target=event.target;
-        console.log(target.className);
+        switch(target.className)
+        {
+            case "parede":
+            target.classList.remove("parede");
+            break;
+            
+            case "":
+            target.classList.add("orcs");
+            target.innerText = "O";
+            break;
+            
+            case "orcs":
+            target.classList.add("tesouro");
+            target.classList.remove("orcs");
+            target.innerText = "D";
+            break;
+            
+            case "tesouro":
+            target.classList.add("parede");
+            target.classList.remove("tesouro");
+            target.innerText = "";
+            break;
+        }
     }
     </script>
 </body>
