@@ -498,9 +498,9 @@
         const celulas=document.querySelectorAll("td");
         for(let i=0; i<celulas.length; i++)
     {
-        elemento.addEventListener("click", ModificaClasseAtual, false);
         const elemento=celulas[i];
-        if(elemento.className== "")
+        elemento.addEventListener("click", ModificaClasseAtual, false);
+        if(elemento.classList.length === 0 )
         {
             elemento.classList.add("parede");
         }
